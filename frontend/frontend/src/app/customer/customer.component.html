@@ -1,0 +1,45 @@
+<h5>Search Books</h5>
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" class="form-control" id="isbn" required placeholder="ISBN"
+        [(ngModel)]="isbn" >
+    </div>
+<div class="col-md-4">
+    <input  type="text" class="form-control" id="title" required placeholder="Book Title"
+    [(ngModel)]="title" > 
+</div>
+<div class="col-md-4">
+    <input type="text" class="form-control" id="author" required placeholder="Book Author"
+    [(ngModel)]="author" >
+</div>
+<div class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+    <button (click)="getBooks()" type="submit" class="btn btn-success">Submit</button>
+</div>
+
+
+</div>
+<div class="row">
+<div class="col-md-12">
+    <table id="customers">
+        <thead>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of customers">
+            <td>{{book.Isbn}}</td>
+            <td>{{book.Title}}</td>
+            <td>{{book.Name}}</td>
+
+            <td *ngIf="book.due_date&&book.date_out&&book.date_in==null"><button (click)="checkin(book)" type="submit" class="btn btn-success">Check In</button></td>
+            <td *ngIf="book.due_date&&book.date_out&&book.date_in"><button (click)="checkout(book)" type="submit" class="btn btn-success">Check Out</button></td>
+            <td *ngIf="book.due_date==null&&book.date_out==null&&book.date_in==null"><button (click)="checkout(book)" type="submit" class="btn btn-success">Check Out</button></td>
+
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+</div>

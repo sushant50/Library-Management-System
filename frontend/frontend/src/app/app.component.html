@@ -1,0 +1,44 @@
+<div class="header1 small">
+  <h1 class="header_logo">Library Management</h1>
+</div>
+
+
+<div class="row">
+        <div class="col-sm-12">  
+          <ul class="nav justify-content-center">
+              <li class="nav-item">
+                  <a routerLink="books" class="btn btn-light btn-sm" role="button" routerLinkActive="active">Search for a book</a> 
+              </li>
+              <li class="nav-item">
+                  <a routerLink="books/add" class="btn btn-light btn-sm" role="button" routerLinkActive="active">Add a Borrower</a>
+              </li>
+              <li class="nav-item">
+                    <a routerLink="books/fines" class="btn btn-light btn-sm" role="button" routerLinkActive="active">Find and Pay Fines</a>
+                </li>
+                <li class="nav-item">
+                        <button (click)="updateFines()" type="submit" routerLinkActive="active" class="btn btn-success btn-sm">Update Fines</button>
+                    </li>
+          </ul>
+          
+          <hr>
+          <router-outlet></router-outlet>
+        </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-4">  
+      <h1>Angular HttpClient</h1>
+      <ul class="nav justify-content-center">
+          <li class="nav-item">
+              <a routerLink="customers" class="btn btn-light btn-sm" role="button" routerLinkActive="active">Retrieve</a> 
+          </li>
+          <li class="nav-item">
+              <a routerLink="customer/add" class="btn btn-light btn-sm" role="button" routerLinkActive="active">Create</a>
+          </li>
+      </ul>
+      <hr>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->

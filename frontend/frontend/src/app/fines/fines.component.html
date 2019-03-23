@@ -1,0 +1,35 @@
+
+<div class="row">
+    <h5 >Pay Fines</h5>
+    <div  class="col-md-12">
+        <input type="text" class="form-control" id="borrower" required placeholder="Enter the Borrower Card Id"
+        [(ngModel)]="borrower" >
+    </div>
+    <div class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+        <button (click)="findFines()" type="submit" class="btn btn-success">Submit</button>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <table id="customers">
+        <thead>
+          <th>ISBN</th>
+          <th>Fine</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fine of fines">
+            <td>{{fine.isbn}}</td>
+            <td>{{fine.amount}}</td>
+            <td><button (click)="payFine(fine)" type="submit" class="btn btn-success">Pay Fine</button></td>
+
+          </tr>
+        </tbody>
+      </table>
+</div>
+<div  class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+        <h5 *ngIf = "loading">Fine Paid Successfully, Redirecting</h5>      
+      </div>
+
+</div>

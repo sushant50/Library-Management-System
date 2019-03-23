@@ -1,0 +1,63 @@
+
+<div class="row">
+        <div  class="example-1 card col-md-12" style="margin-bottom: 5%">
+                <div class="wrapper">
+                  <div class="data">
+                    <div class="content">
+                      <span class="author">{{book.isbn}}</span>
+                      <h1 class="title">{{book.title}}</h1>
+                      <p class="text">{{book.author}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h5 *ngIf = "!loading&&action=='checkout'">Checkout this Book</h5>
+              <h5 *ngIf = "!loading&&action=='checkin'">Checkin this Book</h5>
+
+    <div *ngIf = "action=='checkout'&&!loading" class="col-md-12">
+        <input type="text" class="form-control" id="borrower" required placeholder="Enter the Borrower Card Id"
+        [(ngModel)]="borrower" >
+    </div>
+
+    <div *ngIf = "action=='checkin'&&!loading" class="col-md-12">
+      <input type="text" class="form-control" id="borrower" disabled required
+      [(ngModel)]="borrower" >
+  </div>
+<div *ngIf = "!loading" class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+    <button (click)="checkoutBook()" type="submit" class="btn btn-success">Submit</button>
+</div>
+<div *ngIf ="action=='checkout'" class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+  <h5 *ngIf = "loading">Checkout Successful, Redirecting to the home page.</h5>
+  <h5 *ngIf = "error">Checkout Unsuccesful, Customer has already checked out 3 books.</h5>
+
+</div>
+<div *ngIf ="action=='checkin'" class="btn-group col-md-12 justify-content-center" style=" margin-top: 5%;margin-bottom: 5%">
+  <h5 *ngIf = "loading">Checkin Successful, Redirecting to the home page.</h5>
+  <h5 *ngIf = "error">Checkin Unsuccesful</h5>
+
+</div>
+
+</div>
+
+<!-- <div class="row">
+<div class="col-md-12">
+    <table id="customers">
+        <thead>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of customers">
+            <td>{{book.Isbn}}</td>
+            <td>{{book.Title}}</td>
+            <td>{{book.Name}}</td>
+            <td><button (click)="checkout(book)" type="submit" class="btn btn-success">Check out</button></td>
+
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+</div> -->
